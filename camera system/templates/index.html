@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Recording</title>
+</head>
+<body>
+    <h1>Video Recording</h1>
+    <img src="{{ url_for('video_feed') }}" width="640" height="480" />
+
+    <form action="{{ url_for('save_locally') }}" method="GET">
+        <button type="submit">Save on serwer</button>
+    </form>
+
+    <form action="{{ url_for('save_on_server') }}" method="GET">
+        <button type="submit">Save localy</button>
+    </form>
+
+    //jak-cos-to-funkcje-sa-zapisane-odwrotnie(w kodzie)
+
+    <script type="text/javascript">
+        var video = document.querySelector('img');
+
+        function startRecording() {
+            video.src = "{{ url_for('video_feed') }}";
+        }
+
+        function stopRecording() {
+            video.src = "";
+        }
+    </script>
+</body>
+</html>
